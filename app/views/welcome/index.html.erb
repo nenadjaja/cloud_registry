@@ -44,10 +44,24 @@
     <div class="two columns">
     </div>
     <div class="eight columns">
-      <% @students.each do |s|%>
-        <%= s.name %><br>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Student</th>
+          <th>Url</th>
+        </tr>     
+
+      <% @students.each do |s| %>
+        <% s.urls.each do |u| %>
+          <tr>
+            <td><%= s.course %></td>
+            <td><%= s.name %></td>
+            <td><a href="<%= u.url %>" title="<%= s.name %>"><%= u.url %></a></td>
+          </tr>
+        <% end %>
       <% end %>
-    </div>
+      </table>
+    </div> <!-- .eight columns -->
     <div class="two columns">
     </div>
-</div>
+</div> <!-- .row links -->
